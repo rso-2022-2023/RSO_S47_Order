@@ -1,7 +1,7 @@
-FROM maven:3.8.6-openjdk-15 AS build
+FROM maven:3.8.6-openjdk-18 AS build
 COPY ./ /app
 WORKDIR /app
-RUN mvn --show-version --update-snapshots --batch-mode --legacy-peer-deps clean package
+RUN mvn --show-version --update-snapshots --batch-mode clean package
 
 FROM amazoncorretto:18
 RUN mkdir /app
