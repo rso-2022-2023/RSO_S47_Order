@@ -17,9 +17,9 @@ spec:
           name: orders
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
-              value: jdbc:postgresql://fanny.db.elephantsql.com:5432/fajqyywa
+              value: jdbc:postgresql://fanny.db.elephantsql.com:5432/qwgvylsr
             - name: KUMULUZEE_DATASOURCES0_USERNAME
-              value: fajqyywa
+              value: qwgvylsr
             - name: KUMULUZEE_DATASOURCES0_PASSWORD
               valueFrom:
                 secretKeyRef:
