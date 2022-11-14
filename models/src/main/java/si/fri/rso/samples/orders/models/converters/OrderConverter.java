@@ -13,7 +13,7 @@ public class OrderConverter {
         dto.setOrderId(entity.getId());
         dto.setOrderProductId(entity.getProduct());
         dto.setOrderStatusId(entity.getStatus());
-        dto.setDeliveryId(entity.getDelivery());
+        dto.setOrderDeliveryId(entity.getDelivery());
         dto.setCreatedAt(entity.getCreatedAt());
         dto.setLastModified(entity.getLastModified());
         dto.setQuantity(entity.getQuantity());
@@ -27,7 +27,7 @@ public class OrderConverter {
         OrderEntity entity = new OrderEntity();
         entity.setProduct(dto.getOrderProductId());
         entity.setStatus(dto.getOrderStatusId());
-        entity.setDelivery(dto.getDeliveryId());
+        entity.setDelivery(dto.getOrderDeliveryId());
         entity.setCreatedAt(dto.getCreatedAt());
         entity.setLastModified(dto.getLastModified());
         entity.setQuantity(dto.getQuantity());
