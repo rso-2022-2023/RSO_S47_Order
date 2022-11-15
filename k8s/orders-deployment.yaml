@@ -13,7 +13,7 @@ spec:
         app: orders
     spec:
       containers:
-        - image: RSO_S47_Order/orders:2022-11-14-23-47-33
+        - image: feniksa18/orders:2022-11-14-23-47-33
           name: orders
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
