@@ -224,7 +224,7 @@ public class OrderResource {
 
         ShortOrderDelivery delivery = new ShortOrderDelivery();
         delivery.setDeliveryId(order.getOrderDeliveryId());
-        delivery.setLink("http://localhost:8181/v1/delivery" + order.getOrderDeliveryId());
+        delivery.setLink("http://localhost:8181/v1/delivery/" + order.getOrderDeliveryId());
         order.setOrderDeliveryId(null);
 
 
