@@ -10,6 +10,6 @@ kumuluzee:
   datasources:
     - jndi-name: jdbc/OrdersDS
       connection-url: jdbc:postgresql://localhost:5432/orders
-      username: dbuser
-      password: postgres
+      username: dbuser1
+      password: postgres1
       max-pool-size: 20
