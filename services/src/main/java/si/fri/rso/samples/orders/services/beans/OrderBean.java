@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
-
+import org.eclipse.microprofile.metrics.annotation.Timed;
 import com.kumuluz.ee.rest.beans.QueryParameters;
 import com.kumuluz.ee.rest.utils.JPAUtils;
 
@@ -35,6 +35,7 @@ public class OrderBean {
     @Inject
     private EntityManager em;
 
+    @Timed
     public List<Order> getAllOrder() {
         TypedQuery<OrderEntity> query = em.createNamedQuery(
                 "OrderEntity.getAll", OrderEntity.class);

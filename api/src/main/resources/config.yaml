@@ -13,5 +13,15 @@ kumuluzee:
       username: dbuser1
       password: postgres1
       max-pool-size: 20
+  health:
+    checks:
+      data-source-health-check:
+        type: liveness
+        jndi-name: jdbc/OrdersDS
+    metrics:
+      web-instrumentation:
+        - name: orders-endpoint
+          url-pattern: /v1/order/*
 rest-properties:
   maintenance-mode: false
+  broken: false
