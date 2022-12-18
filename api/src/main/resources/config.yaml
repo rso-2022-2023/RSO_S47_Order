@@ -13,3 +13,5 @@ kumuluzee:
       username: dbuser1
       password: postgres1
       max-pool-size: 20
+rest-properties:
+  maintenance-mode: false
