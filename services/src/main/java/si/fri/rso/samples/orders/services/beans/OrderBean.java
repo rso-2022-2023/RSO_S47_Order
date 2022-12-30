@@ -25,7 +25,17 @@ import si.fri.rso.samples.orders.models.converters.OrderProductConverter;
 import si.fri.rso.samples.orders.models.entities.OrderEntity;
 import si.fri.rso.samples.orders.models.entities.OrderProductEntity;
 import si.fri.rso.samples.orders.models.entities.OrderStatusEntity;
-
+import javax.annotation.PostConstruct;
+import javax.ws.rs.InternalServerErrorException;
+import javax.ws.rs.ProcessingException;
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.core.GenericType;
+import java.time.temporal.ChronoUnit;
+import org.eclipse.microprofile.faulttolerance.CircuitBreaker;
+import org.eclipse.microprofile.faulttolerance.Fallback;
+import org.eclipse.microprofile.faulttolerance.Timeout;
 
 @RequestScoped
 public class OrderBean {
@@ -33,7 +43,19 @@ public class OrderBean {
     private Logger log = Logger.getLogger(OrderBean.class.getName());
 
     @Inject
+    private OrderBean orderBeanProxy;
+
+    @Inject
     private EntityManager em;
+
+    private Client httpClient;
+    private String baseUrl;
+
+    @PostConstruct
+    private void init() {
+        httpClient = ClientBuilder.newClient();
+        baseUrl = "http://localhost:8081"; // only for demonstration
+    }
 
     @Timed
     public List<Order> getAllOrder() {
@@ -163,6 +185,30 @@ public class OrderBean {
         }
 
         return true;
+    }
+
+//    @Timeout(value = 2, unit = ChronoUnit.SECONDS)
+//    @CircuitBreaker(requestVolumeThreshold = 3)
+//    @Fallback(fallbackMethod = "getCommentCountFallback")
+//    public Integer getCommentCount(Integer imageId) {
+//
+//        log.info("Calling comments service: getting comment count.");
+//
+//        try {
+//            return httpClient
+//                    .target(baseUrl + "/v1/comments/count")
+//                    .queryParam("imageId", imageId)
+//                    .request().get(new GenericType<Integer>() {
+//                    });
+//        }
+//        catch (WebApplicationException | ProcessingException e) {
+//            log.severe(e.getMessage());
+//            throw new InternalServerErrorException(e);
+//        }
+//    }
+
+    public Integer getCommentCountFallback(Integer imageId) {
+        return null;
     }
 
     private String getCurrentTime() {
