@@ -27,6 +27,8 @@ import java.util.logging.Logger;
 import com.kumuluz.ee.logs.cdi.Log;
 import si.fri.rso.samples.orders.api.v1.dtos.UploadImageResponse;
 import si.fri.rso.samples.orders.services.clients.AmazonRekognitionClient;
+import com.kumuluz.ee.streaming.common.annotations.StreamProducer;
+import si.fri.rso.samples.orders.services.streaming.EventProducerImpl;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.UUID;
@@ -53,6 +55,9 @@ public class OrderResource {
 
     @Inject
     private AmazonRekognitionClient amazonRekognitionClient;
+
+    @Inject
+    private EventProducerImpl eventProducer;
 
     @Operation(description = "Get a list of all orders.", summary = "Get all orders.")
     @APIResponses({
