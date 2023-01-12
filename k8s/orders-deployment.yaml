@@ -13,7 +13,7 @@ spec:
         app: orders
     spec:
       containers:
-        - image: feniksa18/orders:2022-12-04-16-30-44
+        - image: feniksa18/orders:2023-01-12-12-24-09
           name: orders
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
@@ -48,7 +48,7 @@ kind: Service
 metadata:
   name: orders
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
     - port: 8080
       protocol: TCP
