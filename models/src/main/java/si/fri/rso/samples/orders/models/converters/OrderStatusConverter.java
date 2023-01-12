@@ -9,7 +9,6 @@ public class OrderStatusConverter {
         OrderStatus dto = new OrderStatus();
         dto.setStatusId(entity.getId());
         dto.setName(entity.getName());
-        dto.setDescription(entity.getDescription());
 
         return dto;
     }
@@ -18,7 +17,6 @@ public class OrderStatusConverter {
 
         OrderStatusEntity entity = new OrderStatusEntity();
         entity.setName(dto.getName());
-        entity.setDescription(dto.getDescription());
 
         return entity;
     }

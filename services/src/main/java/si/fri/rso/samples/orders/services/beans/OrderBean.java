@@ -54,7 +54,7 @@ public class OrderBean {
     @PostConstruct
     private void init() {
         httpClient = ClientBuilder.newClient();
-        baseUrl = "http://localhost:8081"; // only for demonstration
+        baseUrl = "http://localhost:8080"; // only for demonstration
     }
 
     @Timed

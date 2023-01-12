@@ -6,8 +6,6 @@ public class OrderStatus {
 
     private String name;
 
-    private String description;
-
     public OrderStatus() {
 
     }
@@ -26,13 +24,5 @@ public class OrderStatus {
 
     public void setName(String newName) {
         this.name = newName;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String newDescription) {
-        this.description = newDescription;
     }
 }

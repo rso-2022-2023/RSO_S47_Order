@@ -1,6 +1,5 @@
 package si.fri.rso.samples.orders.api.v1.resources;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.headers.Header;
@@ -25,14 +24,7 @@ import javax.ws.rs.core.UriInfo;
 import java.util.List;
 import java.util.logging.Logger;
 import com.kumuluz.ee.logs.cdi.Log;
-import si.fri.rso.samples.orders.api.v1.dtos.UploadImageResponse;
-import si.fri.rso.samples.orders.services.clients.AmazonRekognitionClient;
-import com.kumuluz.ee.streaming.common.annotations.StreamProducer;
 import si.fri.rso.samples.orders.services.streaming.EventProducerImpl;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Log
 @ApplicationScoped
@@ -52,9 +44,6 @@ public class OrderResource {
 
     @Context
     protected UriInfo uriInfo;
-
-    @Inject
-    private AmazonRekognitionClient amazonRekognitionClient;
 
     @Inject
     private EventProducerImpl eventProducer;
@@ -226,24 +215,17 @@ public class OrderResource {
     private void convertToShort(Order order) {
         ShortOrderStatus status = new ShortOrderStatus();
         status.setStatusId(order.getOrderStatusId());
-        status.setLink("http://localhost:8080/v1/orderStatus/" + order.getOrderStatusId());
+        status.setLink(uriInfo.getBaseUri() + "orderStatus/" + order.getOrderStatusId());
         order.setOrderStatusId(null);
 
         ShortOrderProduct product = new ShortOrderProduct();
         product.setProductId(order.getOrderProductId());
         product.setQuantity(order.getQuantity());
-        product.setLink("http://localhost:8080/v1/orderProduct/" + order.getOrderProductId());
+        product.setLink(uriInfo.getBaseUri() + "orderProduct/" + order.getOrderProductId());
         order.setOrderProductId(null);
         order.setQuantity(null);
 
-        ShortOrderDelivery delivery = new ShortOrderDelivery();
-        delivery.setDeliveryId(order.getOrderDeliveryId());
-        delivery.setLink("http://localhost:8181/v1/delivery/" + order.getOrderDeliveryId());
-        order.setOrderDeliveryId(null);
-
-
         order.setOrderStatus(status);
         order.setOrderProduct(product);
-        order.setOrderDelivery(delivery);
     }
 }

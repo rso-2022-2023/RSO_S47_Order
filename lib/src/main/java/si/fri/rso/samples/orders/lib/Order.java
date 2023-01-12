@@ -16,8 +16,6 @@ public class Order {
 
     private Long deliveryId;
 
-    private ShortOrderDelivery delivery;
-
     private String createdAt;
 
     private String lastModified;
@@ -71,16 +69,8 @@ public class Order {
         return this.deliveryId;
     }
 
-    public void setOrderDeliveryId(Long deliveryId) {
+    public void setOrderDeliveryId(long deliveryId) {
         this.deliveryId = deliveryId;
-    }
-
-    public ShortOrderDelivery getOrderDelivery() {
-        return this.delivery;
-    }
-
-    public void setOrderDelivery(ShortOrderDelivery delivery) {
-        this.delivery = delivery;
     }
 
     public String getCreatedAt() {

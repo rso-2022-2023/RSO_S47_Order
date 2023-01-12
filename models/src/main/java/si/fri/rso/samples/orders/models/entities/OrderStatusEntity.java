@@ -18,9 +18,6 @@ public class OrderStatusEntity {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "description")
-    private String description;
-
     public Short getId() {
         return this.statusId;
     }
@@ -35,13 +32,5 @@ public class OrderStatusEntity {
 
     public void setName(String newName) {
         this.name = newName;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String newDescription) {
-        this.description = newDescription;
     }
 }
