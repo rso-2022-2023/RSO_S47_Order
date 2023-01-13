@@ -23,9 +23,9 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.util.List;
 import java.util.logging.Logger;
-import com.kumuluz.ee.logs.cdi.Log;
+//import com.kumuluz.ee.logs.cdi.Log;
 
-@Log
+//@Log
 @ApplicationScoped
 @Tag(name = "order", description = "Everything about orders")
 @Path("/order")

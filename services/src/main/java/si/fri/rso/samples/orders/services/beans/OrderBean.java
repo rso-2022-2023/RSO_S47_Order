@@ -12,9 +12,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
-import org.eclipse.microprofile.metrics.annotation.Timed;
-import com.kumuluz.ee.rest.beans.QueryParameters;
-import com.kumuluz.ee.rest.utils.JPAUtils;
+//import org.eclipse.microprofile.metrics.annotation.Timed;
+//import com.kumuluz.ee.rest.beans.QueryParameters;
+//import com.kumuluz.ee.rest.utils.JPAUtils;
 
 import javassist.compiler.ast.Pair;
 import si.fri.rso.samples.orders.lib.Order;
@@ -33,17 +33,12 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.GenericType;
 import java.time.temporal.ChronoUnit;
-import org.eclipse.microprofile.faulttolerance.CircuitBreaker;
-import org.eclipse.microprofile.faulttolerance.Fallback;
-import org.eclipse.microprofile.faulttolerance.Timeout;
 
 @RequestScoped
 public class OrderBean {
 
     private Logger log = Logger.getLogger(OrderBean.class.getName());
 
-    @Inject
-    private OrderBean orderBeanProxy;
 
     @Inject
     private EntityManager em;
@@ -57,7 +52,7 @@ public class OrderBean {
         baseUrl = "http://localhost:8080"; // only for demonstration
     }
 
-    @Timed
+//    @Timed
     public List<Order> getAllOrder() {
         TypedQuery<OrderEntity> query = em.createNamedQuery(
                 "OrderEntity.getAll", OrderEntity.class);

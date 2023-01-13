@@ -13,7 +13,7 @@ spec:
         app: orders
     spec:
       containers:
-        - image: feniksa18/orders:2023-01-12-12-24-09
+        - image: feniksa18/orders:2023-01-13-19-54-41
           name: orders
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
@@ -29,18 +29,18 @@ spec:
             - containerPort: 8080
               name: server
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /health/live
-              port: server
-            initialDelaySeconds: 20
-            periodSeconds: 3
-          readinessProbe:
-            httpGet:
-              path: /health/ready
-              port: server
-            initialDelaySeconds: 20
-            periodSeconds: 3
+#          livenessProbe:
+#            httpGet:
+#              path: /health/live
+#              port: server
+#            initialDelaySeconds: 20
+#            periodSeconds: 3
+#          readinessProbe:
+#            httpGet:
+#              path: /health/ready
+#              port: server
+#            initialDelaySeconds: 20
+#            periodSeconds: 3
 ---
 
 apiVersion: v1
