@@ -24,7 +24,6 @@ import javax.ws.rs.core.UriInfo;
 import java.util.List;
 import java.util.logging.Logger;
 import com.kumuluz.ee.logs.cdi.Log;
-import si.fri.rso.samples.orders.services.streaming.EventProducerImpl;
 
 @Log
 @ApplicationScoped
@@ -44,9 +43,6 @@ public class OrderResource {
 
     @Context
     protected UriInfo uriInfo;
-
-    @Inject
-    private EventProducerImpl eventProducer;
 
     @Operation(description = "Get a list of all orders.", summary = "Get all orders.")
     @APIResponses({

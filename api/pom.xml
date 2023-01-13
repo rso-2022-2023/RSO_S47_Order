@@ -34,11 +34,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.kumuluz.ee.config</groupId>
-            <artifactId>kumuluzee-config-consul</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>com.kumuluz.ee.health</groupId>
             <artifactId>kumuluzee-health</artifactId>
         </dependency>
