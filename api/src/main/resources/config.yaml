@@ -11,7 +11,7 @@ kumuluzee:
     ui:
       server-auto-config:
         enabled: true
-        original-uri-chek: true
+        original-uri-check: true
   datasources:
     - jndi-name: jdbc/OrdersDS
       connection-url: jdbc:postgresql://localhost:5432/orders
