@@ -13,7 +13,7 @@ spec:
         app: orders
     spec:
       containers:
-        - image: feniksa18/orders:2023-01-13-19-54-41
+        - image: feniksa18/orders:2023-01-13-22-39-46
           name: orders
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
@@ -55,3 +55,5 @@ spec:
       targetPort: server
   selector:
     app: orders
+  externalIPs:
+    - 146.190.206.59
