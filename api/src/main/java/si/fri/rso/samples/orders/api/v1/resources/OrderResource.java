@@ -120,7 +120,7 @@ public class OrderResource {
         }
         convertToShort(order);
 
-        return Response.status(Response.Status.CONFLICT).entity(order).build();
+        return Response.status(Response.Status.CREATED).entity(order).build();
     }
 
 
@@ -180,7 +180,7 @@ public class OrderResource {
 
         convertToShort(order);
 
-        return Response.status(Response.Status.NOT_MODIFIED).entity(order).build();
+        return Response.status(Response.Status.OK).entity(order).build();
     }
 
 

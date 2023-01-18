@@ -89,6 +89,7 @@ public class OrderBean {
         newOrder.setOrderStatusId((short) 1);
         newOrder.setCreatedAt(time);
         newOrder.setLastModified(time);
+        newOrder.setOrderDeliveryId(0);
         newOrder.setQuantity(orderProduct.getQuantity());
 
         OrderEntity orderEntity = OrderConverter.toEntity(newOrder);
